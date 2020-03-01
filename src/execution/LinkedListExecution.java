@@ -1,4 +1,5 @@
 package execution;
 
-public class LinkedListExecution {
+public class LinkedListExecution<E> {
+
 }
