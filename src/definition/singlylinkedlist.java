@@ -18,6 +18,13 @@ public class singlylinkedlist<E> implements linkedlistADT<E> {
         return response;
     }
 
+    private void addFirst(E item){
+
+        if (head == null) { head = new Node<>(item, null); }
+        else { head = new Node<>(item, head); }
+        size++;
+    }
+
     @Override
     public void add(E item) {
 
