@@ -5,8 +5,18 @@ import adt.linkedlistADT;
 
 public class singlylinkedlist<E> implements linkedlistADT<E> {
 
+    private Node<E> head = null;
+    private int size = 0;
 
+    private Node<E> getNode(int index) {
 
+        Node<E> response = head;
+        for (int i = 0; i < index && response!=null; i++) {
+            response = response.getNext();
+        }
+
+        return response;
+    }
 
     @Override
     public void add(E item) {
