@@ -61,6 +61,18 @@ public class singlylinkedlist<E> implements linkedlistADT<E> {
         return response;
     }
 
+    private E removeAfter(Node<E> afterNode) {
+
+        E response = null;
+        Node<E> temp = afterNode.getNext();
+
+        if (temp != null) {
+            afterNode.next = temp.getNext();
+            size--;
+            response = temp.getData();
+        }
+        return response;
+    }
 
     @Override
     public void add(E item) {
