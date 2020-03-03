@@ -20,20 +20,13 @@ public class singlylinkedlist<E> implements linkedlistADT<E> {
 
     private void addFirst(E item){
 
-        if (head == null) { head = new Node<>(item, null); }
-        else { head = new Node<>(item, head); }
+        head = new Node<>(item, head);
         size++;
     }
 
     private void addAfter(E item, Node<E> afterNode) {
 
-        Node<E> temp = afterNode.getNext();
-        if (temp == null) {
-            afterNode.next = new Node<>(item, null);
-        }
-        else {
-            afterNode.next = new Node<>(item, afterNode.next);
-        }
+        afterNode.next = new Node<>(item, afterNode.next);
         size++;
     }
 
@@ -50,6 +43,24 @@ public class singlylinkedlist<E> implements linkedlistADT<E> {
         }
 
     }
+
+    private E removeFirst(){
+
+        E response = null;
+        Node<E> temp = head;
+
+        if (head != null) {
+            head = head.getNext();
+
+        }
+
+        if (temp != null) {
+            size--;
+            response = temp.getData();
+        }
+        return response;
+    }
+
 
     @Override
     public void add(E item) {
