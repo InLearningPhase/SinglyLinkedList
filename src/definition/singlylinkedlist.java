@@ -101,7 +101,15 @@ public class singlylinkedlist<E> implements linkedlistADT<E> {
 
     @Override
     public int search(E item) {
-        return 0;
+
+        int response = -1;
+        for (int i = 0; i < size; i++) {
+            E data = this.getNode(i).getData();
+
+            if (item.equals(data))
+                response = i;
+        }
+        return response;
     }
 
     @Override
@@ -112,10 +120,10 @@ public class singlylinkedlist<E> implements linkedlistADT<E> {
     @Override
     public void print() {
 
-        System.out.println("[");
+        System.out.print("[");
         for (int i = 0; i < size; i++) {
             E data = this.getNode(i).getData();
-            System.out.println(data + (i < size - 1 ? "," : ""));
+            System.out.print(data + (i < size - 1 ? "," : ""));
         }
         System.out.println("]");
     }
